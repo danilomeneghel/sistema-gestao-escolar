@@ -1,13 +1,12 @@
 # Gestão Escolar
 
-Sistema de Gestão Escolar, com infomações de Alunos, Escolas e Turmas, onde é possível realizar os procedimetos de manipulação como, adicionar, alterar, deletar e listar.
-Além de disponibilizar o consumo dos dados através de uma API Rest.
+Sistema de Gestão Escolar com informações de Alunos, Escolas e Turmas.
+Com disponibilização de consumo de dados através de API REST.
 
 ### Pré-requisitos:
 
 -   Composer
 -   PHP >= 7
--   npm
 
 ## Instalação
 
@@ -21,7 +20,7 @@ Clonar Projeto
 
 -   MySql
 
-## Criar e configura arquivo .env
+## Criar e configurar arquivo .env
 
 ```bash
   cp .env.example .env
@@ -68,7 +67,7 @@ Será populado 15 registos por execução
   npm run dev
 ```
 
-## Inicia o Servidor do Laravel
+## Iniciar o Servidor do Laravel
 
 ```bash
   php artisan serve
@@ -136,11 +135,3 @@ API disponibiliza as funcionalidade baseada na rota:
 -   [MySql](https://www.mysql.com/) - Gerenciador de Banco de Dados
 -   [Bootstrap](https://getbootstrap.com/) - Bootstrap 5.
 
-## Author:
-
--   **Roney Freitas** - [LinkedIn](https://www.linkedin.com/in/roney-freitas-99b264114/)
-
-## Documantação
-
--   [Laravel](https://laravel.com/)
--   [Bootstrap](https://getbootstrap.com/)
