@@ -10,12 +10,6 @@ Com disponibilização de consumo de dados através de API REST.
 
 ## Instalação
 
-Clonar Projeto
-
-```bash
-  git@github.com:roneydev01/gestao-escolar.git
-```
-
 ## Criar o banco de dados
 
 -   MySql
