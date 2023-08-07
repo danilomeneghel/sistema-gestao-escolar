@@ -10,9 +10,9 @@ Com disponibilização de consumo de dados através de API REST.
 
 ## Instalação
 
-## Criar o banco de dados
+## Banco MySql
 
--   MySql
+Criar o banco de dados MySql.
 
 ## Criar e configurar arquivo .env
 
@@ -20,7 +20,7 @@ Com disponibilização de consumo de dados através de API REST.
   cp .env.example .env
 ```
 
-Variaveis de ambiente do .env
+Variáveis de ambiente do .env
 
 -   DB_CONNECTION=mysql
 -   DB_HOST=127.0.0.1
@@ -53,12 +53,6 @@ Será populado 15 registos por execução
 
 ```bash
   php artisan db:seed
-```
-
-## Gerar os recursos JavaScript e CSS
-
-```bash
-  npm run dev
 ```
 
 ## Iniciar o Servidor do Laravel
