@@ -13,7 +13,7 @@ class Aluno extends Model
      * Define os campos que podem ser gravados
      * @var array
      */
-    protected $fillable = ['nome','telefone', 'email', 'data_nascimento', 'genero'];
+    protected $fillable = ['nome', 'telefone', 'email', 'data_nascimento', 'genero'];
     
 
     public function turma()

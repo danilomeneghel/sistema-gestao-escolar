@@ -13,7 +13,7 @@ class Turma extends Model
      * Define os campos que podem ser gravados
      * @var array
      */
-    protected $fillable = ['escola_id','turno', 'serie', 'nivel', 'ano'];
+    protected $fillable = ['escola_id', 'turno', 'serie', 'nivel', 'ano'];
     
 
     public function escola()

@@ -13,7 +13,7 @@ class Escola extends Model
      * Define os campos que podem ser gravados
      * @var array
      */
-    protected $fillable = ['nome','logradouro', 'numero', 'bairro', 'cidade', 'cep', 'estado'];
+    protected $fillable = ['nome', 'logradouro', 'numero', 'bairro', 'cidade', 'cep', 'estado'];
     
 
     public function turma()
