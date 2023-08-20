@@ -9,7 +9,7 @@
       <h1 class="card-title">Gestão Escolar</h1>
       <p class="card-text text-secondary">Bem-vindo a sua plataforma de gestão.</p>
       <div>
-          <img src="{{asset('assets/img/banner.png')}}" class="img-fluid center-block" width="400" height="400" alt="">
+          <img src="{{asset('images/banner.png')}}" class="img-fluid center-block" width="400">
       </div>
     </div>
   </div>
