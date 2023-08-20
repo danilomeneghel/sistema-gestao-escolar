@@ -23,5 +23,6 @@ body {
 }
 
 .logo-login {
+  margin-top: -20px !important;
   padding-bottom: 15px !important;
 }
