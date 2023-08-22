@@ -51,8 +51,9 @@
           </tr>
           @empty
             <tr>
-              <th ></th>
+              <th></th>
               <td>Nenhum registro cadastrado.</td>
+              <td></td>
               <td></td>
               <td></td>
               <td></td>

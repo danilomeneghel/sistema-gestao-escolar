@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Escola;
-use App\Models\Turma;
+use App\Models\Aluno;
+use App\Models\Materia;
+use App\Models\Periodo;
+use App\Models\Nota;
 use Illuminate\Http\Request;
 
-class TurmaController extends Controller
+class NotaController extends Controller
 {
     /**
-     * Lista as Turmas
+     * Lista as Notas
      *
      * @return void
      */
@@ -18,17 +20,17 @@ class TurmaController extends Controller
         $busca = $request->get('filter');
 
         if ($busca) {
-            $turmas = Turma::where([
+            $notas = Nota::where([
                ['nivel', '=', "{$busca}"]
             ])
             ->paginate(10)
             ->withQueryString();
         }else{
-            $turmas = Turma::paginate(10);
+            $notas = Nota::paginate(10);
         }
 
-        return view('turmas.home', [
-            'turmas' => $turmas
+        return view('notas.home', [
+            'notas' => $notas
         ])->with('busca', $busca);
     }
 
@@ -39,15 +41,19 @@ class TurmaController extends Controller
      */
     public function create()
     {
-        $escolas = Escola::get();
+        $alunos = Aluno::get();
+        $materias = Materia::get();
+        $periodos = Periodo::get();
 
-        return view('turmas.create',[
-            'escolas'=> $escolas
+        return view('notas.create',[
+            'alunos'=> $alunos,
+            'materias'=> $materias,
+            'periodos'=> $periodos
         ]);
     }
 
     /**
-     * Cria uma Turma no DB
+     * Cria uma Nota no DB
      *
      * @param Request $request
      * @return void
@@ -56,15 +62,15 @@ class TurmaController extends Controller
     {
         $dados = $request->except('_token');
 
-        Turma::create($dados);
+        Nota::create($dados);
 
-        return redirect()->route('turmas.index')->with('msg','Turma adicionada com sucesso!');
+        return redirect()->route('notas.index')->with('msg','Nota adicionada com sucesso!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Turma  $id
+     * @param  \App\Models\Nota  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -80,17 +86,21 @@ class TurmaController extends Controller
      */
     public function edit(int $id)
     {
-        $turma = Turma::findOrFail($id);
-        $escolas = Escola::get();
+        $nota = Nota::findOrFail($id);
+        $alunos = Aluno::get();
+        $materias = Materia::get();
+        $periodos = Periodo::get();
 
-        return view('turmas.edit', [
-            'turma' => $turma,
-            'escolas'=> $escolas
+        return view('notas.edit', [
+            'nota' => $nota,
+            'alunos'=> $alunos,
+            'materias'=> $materias,
+            'periodos'=> $periodos
         ]);
     }
 
     /**
-     * Atualiza uma Turma no DB
+     * Atualiza uma Nota no DB
      *
      * @param Integer $id
      * @param Request $request
@@ -98,27 +108,27 @@ class TurmaController extends Controller
      */
     public function update(Request $request, int $id)
     {
-        $turma = Turma::findOrFail($id);
+        $nota = Nota::findOrFail($id);
 
         $dados = $request->except(['_token', '_method']);
 
-        $turma->update($dados);
+        $nota->update($dados);
 
-        return redirect()->route('turmas.index')->with('msg','Turma atualizada com sucesso!');
+        return redirect()->route('notas.index')->with('msg','Nota atualizada com sucesso!');
     }
 
     /**
-     * Deleta uma Turma do DB
+     * Deleta uma Nota do DB
      *
      * @param Integer $id
      * @return void
      */
     public function destroy(int $id)
     {
-        $turma = Turma::findOrFail($id);
+        $nota = Nota::findOrFail($id);
 
-        $turma->delete();
+        $nota->delete();
 
-        return redirect()->route('turmas.index')->with('msg','Turma excluída com sucesso!');
+        return redirect()->route('notas.index')->with('msg','Nota excluída com sucesso!');
     }
 }

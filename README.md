@@ -1,14 +1,36 @@
 # Gestão Escolar
 
-Sistema de Gestão Escolar com informações de Alunos, Escolas e Turmas.
-Com disponibilização de consumo de dados através de API REST.
+Sistema de Gestão Escolar desenvolvido com PHP e Laravel.
 
-### Pré-requisitos:
+## Módulos:
 
--   Composer
--   PHP >= 7
+- Login
+- Escolas
+- Alunos
+- Turmas
+- Matérias
+- Períodos
+- Notas
 
-## Instalação
+## Requisitos:
+
+- PHP >= 7.4.33
+- MySql >= 5
+- Composer
+
+## Tecnologias:
+
+- PHP
+- JS
+- Jquery
+- Json
+- CSS and SCSS
+- Bootstrap
+- Composer
+- Artisan
+- Laravel
+
+## Instalação:
 
 ## Banco MySql
 
@@ -49,7 +71,7 @@ Variáveis de ambiente do .env
 
 ## Popular as tabelas
 
-Será populado 15 registos por execução
+Será populado 15 registros por execução
 
 ```bash
   php artisan db:seed
@@ -63,7 +85,7 @@ Será populado 15 registos por execução
 
 ## Endpoints API
 
-API disponibiliza as funcionalidade baseada na rota:
+API disponibiliza as funcionalidades baseadas na rota:
 
 ```bash
   localhost:8000/api
@@ -116,10 +138,3 @@ API disponibiliza as funcionalidade baseada na rota:
 ```bash
   Content-Type application/json
 ```
-
-## Construído com:
-
--   [Laravel](https://laravel.com/) - Framework Laravel 8.
--   [MySql](https://www.mysql.com/) - Gerenciador de Banco de Dados
--   [Bootstrap](https://getbootstrap.com/) - Bootstrap 5.
-

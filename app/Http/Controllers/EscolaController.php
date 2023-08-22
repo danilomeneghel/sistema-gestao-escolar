@@ -24,18 +24,18 @@ class EscolaController extends Controller
             ->paginate(10)
             ->withQueryString();
         }else{
-            $escolas = Escola::paginate(10); 
+            $escolas = Escola::paginate(10);
         }
-        
+
         return view('escolas.home', [
             'escolas' => $escolas
         ])->with('busca', $busca);
     }
 
     /**
-     * Mostra oo formulário de criação
-     * 
-     * @return void 
+     * Mostra o formulário de criação
+     *
+     * @return void
      */
     public function create()
     {
@@ -44,7 +44,7 @@ class EscolaController extends Controller
 
     /**
      * Cria uma Escola no DB
-     * 
+     *
      * @param Request $request
      * @return void
      */
@@ -73,7 +73,7 @@ class EscolaController extends Controller
 
     /**
      * Mostra o formulário de edição populado
-     * 
+     *
      * @param Integer $id
      * @return void
      */
@@ -88,7 +88,7 @@ class EscolaController extends Controller
 
     /**
      * Atualiza uma Escola no DB
-     * 
+     *
      * @param Integer $id
      * @param EscolaRequest $request
      * @return void
@@ -105,12 +105,12 @@ class EscolaController extends Controller
 
         $escola->update($dados);
 
-        return redirect()->route('escolas.index')->with('msg','Dados atualizados com sucesso!');
+        return redirect()->route('escolas.index')->with('msg','Escola atualizada com sucesso!');
     }
 
     /**
      * Deleta uma Escola do DB
-     * 
+     *
      * @param Integer $id
      * @return void
      */
@@ -125,7 +125,7 @@ class EscolaController extends Controller
 
     /**
      * Remove os caracteres das mascaras cep e telefone
-     * 
+     *
      * @param string $data
      * @return string
      */

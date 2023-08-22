@@ -3,6 +3,9 @@
 use App\Http\Controllers\Api\AlunoController;
 use App\Http\Controllers\Api\EscolaController;
 use App\Http\Controllers\Api\TurmaController;
+use App\Http\Controllers\Api\MateriaController;
+use App\Http\Controllers\Api\PeriodoController;
+use App\Http\Controllers\Api\NotaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -41,3 +44,24 @@ Route::get('turma/{id}', [TurmaController::class, 'show']);
 Route::post('turma', [TurmaController::class, 'store']);
 Route::put('turma/{id}', [TurmaController::class, 'update']);
 Route::delete('turma/{id}', [TurmaController::class, 'destroy']);
+
+//Rotas API Materias
+Route::get('materias', [MateriaController::class, 'index']);
+Route::get('materia/{id}', [MateriaController::class, 'show']);
+Route::post('materia', [MateriaController::class, 'store']);
+Route::put('materia/{id}', [MateriaController::class, 'update']);
+Route::delete('materia/{id}', [MateriaController::class, 'destroy']);
+
+//Rotas API Periodos
+Route::get('periodos', [PeriodoController::class, 'index']);
+Route::get('periodo/{id}', [PeriodoController::class, 'show']);
+Route::post('periodo', [PeriodoController::class, 'store']);
+Route::put('periodo/{id}', [PeriodoController::class, 'update']);
+Route::delete('periodo/{id}', [PeriodoController::class, 'destroy']);
+
+//Rotas API Notas
+Route::get('notas', [NotaController::class, 'index']);
+Route::get('nota/{id}', [NotaController::class, 'show']);
+Route::post('nota', [NotaController::class, 'store']);
+Route::put('nota/{id}', [NotaController::class, 'update']);
+Route::delete('nota/{id}', [NotaController::class, 'destroy']);

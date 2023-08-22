@@ -14,10 +14,10 @@ class Escola extends Model
      * @var array
      */
     protected $fillable = ['nome', 'logradouro', 'numero', 'bairro', 'cidade', 'cep', 'estado'];
-    
 
     public function turma()
     {
         return $this->hasMany(Turma::class, 'escola_id', 'id' );
     }
+
 }

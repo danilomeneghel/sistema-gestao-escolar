@@ -14,7 +14,6 @@ class Turma extends Model
      * @var array
      */
     protected $fillable = ['escola_id', 'turno', 'serie', 'nivel', 'ano'];
-    
 
     public function escola()
     {
@@ -23,6 +22,7 @@ class Turma extends Model
 
     public function aluno()
     {
-        return $this->belongsToMany( Aluno::class, 'alunos_turmas', 'turma_id', 'aluno_id');
+        return $this->belongsToMany(Aluno::class, 'alunos_turmas', 'turma_id', 'aluno_id');
     }
+
 }

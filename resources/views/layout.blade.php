@@ -37,6 +37,15 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('turmas.index') }}">Turmas</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('materias.index') }}">Matérias</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('periodos.index') }}">Períodos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('notas.index') }}">Notas</a>
+                            </li>
                         </ul>
                     </div>
                     @auth

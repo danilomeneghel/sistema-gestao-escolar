@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Escola;
+use App\Models\Periodo;
 use Illuminate\Database\Seeder;
 
-class EscolaSeeder extends Seeder
+class PeriodoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class EscolaSeeder extends Seeder
      */
     public function run()
     {
-          Escola::factory(15)->create();
+        Periodo::factory(15)->create();
     }
 }

@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Escola;
+use App\Models\Materia;
 use Illuminate\Database\Seeder;
 
-class EscolaSeeder extends Seeder
+class MateriaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class EscolaSeeder extends Seeder
      */
     public function run()
     {
-          Escola::factory(15)->create();
+        Materia::factory(15)->create();
     }
 }

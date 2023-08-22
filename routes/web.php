@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\EscolaController;
 use App\Http\Controllers\TurmaController;
+use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\PeriodoController;
+use App\Http\Controllers\NotaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +21,8 @@ use App\Http\Controllers\TurmaController;
 */
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
-{   
-	
+{
+
 	Route::group(['middleware' => ['guest']], function() {
 		/**
 		 * Register Routes
@@ -35,18 +38,18 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 	});
 
 	Route::group(['middleware' => ['auth']], function() {
-		
+
 		/**
 		* Home Routes
 		*/
 		Route::get('/', 'HomeController@index')->name('home.index');
-		
+
 		/**
 		 * Logout Routes
 		 */
-		Route::get('/logout', 'LogoutController@perform')->name('logout.perform');	
-    
-	    	Route::prefix('alunos')->group(function(){
+		Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+
+        Route::prefix('alunos')->group(function(){
 		    Route::get('/', [AlunoController::class, 'index'])->name('alunos.index');
 		    Route::get('/create', [AlunoController::class, 'create'])->name('alunos.create');
 		    Route::post('/', [AlunoController::class, 'store'])->name('alunos.store');
@@ -72,5 +75,32 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 		    Route::put('/{id}', [TurmaController::class, 'update'])->name('turmas.update');
 		    Route::get('/{id}', [TurmaController::class, 'destroy'])->name('turmas.destroy');
 		});
+
+        Route::prefix('materias')->group(function(){
+            Route::get('/', [MateriaController::class, 'index'])->name('materias.index');
+            Route::get('/create', [MateriaController::class, 'create'])->name('materias.create');
+            Route::post('/', [MateriaController::class, 'store'])->name('materias.store');
+            Route::get('/{id}/edit', [MateriaController::class, 'edit'])->name('materias.edit');
+            Route::put('/{id}', [MateriaController::class, 'update'])->name('materias.update');
+            Route::get('/{id}', [MateriaController::class, 'destroy'])->name('materias.destroy');
+        });
+
+        Route::prefix('periodos')->group(function(){
+            Route::get('/', [PeriodoController::class, 'index'])->name('periodos.index');
+            Route::get('/create', [PeriodoController::class, 'create'])->name('periodos.create');
+            Route::post('/', [PeriodoController::class, 'store'])->name('periodos.store');
+            Route::get('/{id}/edit', [PeriodoController::class, 'edit'])->name('periodos.edit');
+            Route::put('/{id}', [PeriodoController::class, 'update'])->name('periodos.update');
+            Route::get('/{id}', [PeriodoController::class, 'destroy'])->name('periodos.destroy');
+        });
+
+		Route::prefix('notas')->group(function(){
+            Route::get('/', [NotaController::class, 'index'])->name('notas.index');
+            Route::get('/create', [NotaController::class, 'create'])->name('notas.create');
+            Route::post('/', [NotaController::class, 'store'])->name('notas.store');
+            Route::get('/{id}/edit', [NotaController::class, 'edit'])->name('notas.edit');
+            Route::put('/{id}', [NotaController::class, 'update'])->name('notas.update');
+            Route::get('/{id}', [NotaController::class, 'destroy'])->name('notas.destroy');
+        });
 	});
 });

@@ -41,7 +41,7 @@
     <tbody>
       @if($busca && count($alunos) <= 0 )
         <tr>
-          <th ></th>
+          <th></th>
           <td>Nenhum registro encontrado.</td>
           <td></td>
           <td></td>
@@ -61,7 +61,7 @@
           </tr>
           @empty
             <tr>
-              <th ></th>
+              <th></th>
               <td>Nenhum registro cadastrado.</td>
               <td></td>
               <td></td>

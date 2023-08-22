@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Aluno extends Model
+class Periodo extends Model
 {
     use HasFactory;
 
@@ -13,11 +13,11 @@ class Aluno extends Model
      * Define os campos que podem ser gravados
      * @var array
      */
-    protected $fillable = ['nome', 'telefone', 'email', 'data_nascimento', 'genero'];
+    protected $fillable = ['tipo', 'periodo'];
 
-    public function turma()
+    public function nota()
     {
-        return $this->belongsToMany(Turma::class, 'alunos_turmas', 'aluno_id', 'turma_id');
+        return $this->hasMany(Nota::class, 'nota_id', 'id' );
     }
 
 }
