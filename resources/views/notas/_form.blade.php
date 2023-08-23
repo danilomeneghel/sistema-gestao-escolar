@@ -26,10 +26,20 @@
         @endforeach
     </select>
   </div>
-  <div class="mb-2 col-md-12">
+  <div class="mb-2 col-md-4">
     <label for="nota" class="form-label">Nota*</label>
     <input type="text" value="{{ @$nota->nota }}" class="form-control" id="nota" name="nota" placeholder="Nota" required maxlength="3">
   </div>
-  <div class="mb-2 col-md-2">
+  <div class="mb-2 col-md-12">
+      <label class="form-label">Aprovado?*</label><br>
+      <input type="radio" value="Sim" id="1" name="aprovado" checked="checked">
+      <label for="aprovado" class="form-label">Sim</label>
+      <input type="radio" value="Não" id="0" name="aprovado">
+      <label for="aprovado" class="form-label">Não</label>
+  </div>
+  <div class="col-1">
+    <a href="{{route('notas.index')}}" class="btn btn-outline-secondary" role="button">Voltar</a>
+  </div>
+  <div class="col-1">
     <button type="submit" class="btn btn-success">Salvar</button>
   </div>

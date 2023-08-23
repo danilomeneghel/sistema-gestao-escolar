@@ -13,7 +13,7 @@ class Nota extends Model
      * Define os campos que podem ser gravados
      * @var array
      */
-    protected $fillable = ['aluno_id', 'materia_id', 'periodo_id', 'nota'];
+    protected $fillable = ['aluno_id', 'materia_id', 'periodo_id', 'nota', 'aprovado'];
 
     public function aluno()
     {

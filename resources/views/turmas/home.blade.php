@@ -4,20 +4,27 @@
 
 @section('content')
 
-<p class="h2">Lista de Turmas</p>
+  <p class="h2">Lista de Turmas</p>
 
-  <form method="GET" action="{{route('turmas.index')}}" class="row g-3 mb-3">
-    <div class="col-md-2">
-      <select id="filter" name="filter" class="form-select">
-        <option value="">Selecione</option>
-        <option value="Fundamental">Fundamental</option>
-        <option value="Médio">Médio</option>
-      </select>
+  <div class="row my-3">
+    <div class="col-7">
+        <a href="{{route('turmas.create')}}" class="btn btn-primary" role="button">Nova Turma</a>
     </div>
-    <div class="col-md-2">
-      <button class="btn btn-outline-primary" type="submit">Buscar</button>
+    <div class="col-5">
+      <form method="GET" action="{{route('turmas.index')}}" class="row">
+        <div class="col-9">
+          <select id="filter" name="filter" class="form-select">
+            <option value="">Selecione</option>
+            <option value="Fundamental">Fundamental</option>
+            <option value="Médio">Médio</option>
+          </select>
+        </div>
+        <div class="col-2">
+          <button class="btn btn-outline-primary" type="submit">Buscar</button>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 
   <table class="table table-striped table-hover">
       <thead class="table-primary">
@@ -73,7 +80,10 @@
       @endif
     </tbody>
   </table>
-  {{$turmas->links()}}
-  <a href="{{route('turmas.create')}}" class="btn btn-primary" role="button">Nova turma</a>
+
+  <div class="row">
+      <div class="col-6 text-start">{{$turmas->links()}}</div>
+      <div class="col-6 text-end">Total de Registros: {{$total}}</div>
+  </div>
 
 @endsection

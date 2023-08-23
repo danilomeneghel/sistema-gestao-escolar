@@ -15,9 +15,6 @@ class AlunoController extends Controller
      */
     public function index(Request $request)
     {
-        
-        $total = Aluno::count();
-
         $busca = $request->get('search');
 
         if ($busca) {
@@ -26,20 +23,22 @@ class AlunoController extends Controller
             ])
             ->paginate(10)
             ->withQueryString();
+            $total = count($alunos);
         }else{
-            $alunos = Aluno::paginate(10); 
+            $alunos = Aluno::paginate(10);
+            $total = Aluno::count();
         }
-        
+
         return view('alunos.home', [
             'alunos' => $alunos,
-            'total' => $total,
+            'total' => $total
         ])->with('busca', $busca);
     }
 
     /**
      * Mostra oo formulário de criação
-     * 
-     * @return void 
+     *
+     * @return void
      */
     public function create()
     {
@@ -48,7 +47,7 @@ class AlunoController extends Controller
 
     /**
      * Cria um Aluno no DB
-     * 
+     *
      * @param Request $request
      * @return void
      */
@@ -77,7 +76,7 @@ class AlunoController extends Controller
 
     /**
      * Mostra o formulário de edição populado
-     * 
+     *
      * @param Integer $id
      * @return void
      */
@@ -92,7 +91,7 @@ class AlunoController extends Controller
 
     /**
      * Atualiza um Aluno no DB
-     * 
+     *
      * @param Integer $id
      * @param Request $request
      * @return void
@@ -114,7 +113,7 @@ class AlunoController extends Controller
 
     /**
      * Deleta um aluno do DB
-     * 
+     *
      * @param Integer $id
      * @return void
      */
@@ -130,7 +129,7 @@ class AlunoController extends Controller
 
     /**
      * Remove os caracteres das mascaras cep e telefone
-     * 
+     *
      * @param string $data
      * @return string
      */

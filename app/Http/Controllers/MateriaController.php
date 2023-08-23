@@ -23,12 +23,15 @@ class MateriaController extends Controller
             ])
             ->paginate(10)
             ->withQueryString();
+            $total = count($materias);
         }else{
             $materias = Materia::paginate(10);
+            $total = Materia::count();
         }
 
         return view('materias.home', [
-            'materias' => $materias
+            'materias' => $materias,
+            'total' => $total
         ])->with('busca', $busca);
     }
 

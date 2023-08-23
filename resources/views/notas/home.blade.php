@@ -4,16 +4,27 @@
 
 @section('content')
 
-<p class="h2">Lista de Notas</p>
+  <p class="h2">Lista de Notas</p>
 
-  <form method="GET" action="{{route('notas.index')}}" class="row g-3 mb-3">
-    <div class="col">
-      <input type="search" class="form-control" id ="search" name = "search" value="{{$busca}}" placeholder="Buscar Notas" aria-label="Search">
+  <div class="row my-3">
+    <div class="col-7">
+        <a href="{{route('notas.create')}}" class="btn btn-primary" role="button">Nova Nota</a>
     </div>
-    <div class="col">
-      <button class="btn btn-outline-primary" type="submit">Buscar</button>
+    <div class="col-5">
+      <form method="GET" action="{{route('notas.index')}}" class="row">
+          <div class="col-9">
+            <select id="filter" name="filter" class="form-select">
+              <option value="">Selecione</option>
+              <option value="Sim">Aprovado</option>
+              <option value="Não">Reprovado</option>
+            </select>
+          </div>
+          <div class="col-2">
+            <button class="btn btn-outline-primary" type="submit">Buscar</button>
+          </div>
+      </form>
     </div>
-  </form>
+  </div>
 
   <table class="table table-striped table-hover">
       <thead class="table-primary">
@@ -23,6 +34,7 @@
         <th scope="col">Matéria</th>
         <th scope="col">Período</th>
         <th scope="col">Nota</th>
+        <th scope="col">Aprovado</th>
         <th scope="col">Ações</th>
       </tr>
     </thead>
@@ -31,6 +43,7 @@
         <tr>
           <th></th>
           <td>Nenhum registro encontrado.</td>
+          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -53,6 +66,7 @@
             <td>{{$materia->nome}}</td>
             <td>{{$periodo->periodo}} {{$periodo->tipo}}</td>
             <td>{{$nota->nota}}</td>
+            <td>{{$nota->aprovado}}</td>
             <td>
               <a href="{{route('notas.edit', $nota)}}" class="btn btn-success">Editar</a>
               <a href="{{route('notas.destroy', $nota)}}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
@@ -66,12 +80,16 @@
               <td></td>
               <td></td>
               <td></td>
+              <td></td>
             </tr>
         @endforelse
       @endif
     </tbody>
   </table>
-  {{$notas->links()}}
-  <a href="{{route('notas.create')}}" class="btn btn-primary" role="button">Nova nota</a>
+
+  <div class="row">
+      <div class="col-6 text-start">{{$notas->links()}}</div>
+      <div class="col-6 text-end">Total de Registros: {{$total}}</div>
+  </div>
 
 @endsection

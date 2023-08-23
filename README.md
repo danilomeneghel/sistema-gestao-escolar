@@ -99,6 +99,9 @@ API disponibiliza as funcionalidades baseadas na rota:
   /alunos
   /escolas
   /turmas
+  /materias
+  /periodos
+  /notas
 ```
 
 -   show (GET)
@@ -107,6 +110,9 @@ API disponibiliza as funcionalidades baseadas na rota:
   /aluno/{id}
   /escola/{id}
   /turma/{id}
+  /materias/{id}
+  /periodos/{id}
+  /notas/{id}
 ```
 
 -   store (POST)
@@ -115,6 +121,9 @@ API disponibiliza as funcionalidades baseadas na rota:
   /aluno
   /escola
   /turma
+  /materias
+  /periodos
+  /notas
 ```
 
 -   update (PUT)
@@ -123,6 +132,9 @@ API disponibiliza as funcionalidades baseadas na rota:
   /aluno/{id}
   /escola/{id}
   /turma/{id}
+  /materias/{id}
+  /periodos/{id}
+  /notas/{id}
 ```
 
 -   destroy (DELETE)
@@ -131,6 +143,9 @@ API disponibiliza as funcionalidades baseadas na rota:
   /aluno/{id}
   /escola/{id}
   /turma/{id}
+  /materias/{id}
+  /periodos/{id}
+  /notas/{id}
 ```
 
 -   Header

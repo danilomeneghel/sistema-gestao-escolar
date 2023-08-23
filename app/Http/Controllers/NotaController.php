@@ -21,16 +21,19 @@ class NotaController extends Controller
 
         if ($busca) {
             $notas = Nota::where([
-               ['nivel', '=', "{$busca}"]
+               ['aprovado', '=', "{$busca}"]
             ])
             ->paginate(10)
             ->withQueryString();
+            $total = count($notas);
         }else{
             $notas = Nota::paginate(10);
+            $total = Nota::count();
         }
 
         return view('notas.home', [
-            'notas' => $notas
+            'notas' => $notas,
+            'total' => $total
         ])->with('busca', $busca);
     }
 

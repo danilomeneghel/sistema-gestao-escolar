@@ -4,16 +4,23 @@
 
 @section('content')
 
-<p class="h2">Lista de Periodos</p>
+  <p class="h2">Lista de Períodos</p>
 
-  <form method="GET" action="{{route('periodos.index')}}" class="row g-3 mb-3">
-    <div class="col">
-      <input type="search" class="form-control" id ="search" name = "search" value="{{$busca}}" placeholder="Buscar Periodos" aria-label="Search">
+  <div class="row my-3">
+    <div class="col-7">
+        <a href="{{route('periodos.create')}}" class="btn btn-primary" role="button">Novo Período</a>
     </div>
-    <div class="col">
-      <button class="btn btn-outline-primary" type="submit">Buscar</button>
+    <div class="col-5">
+      <form method="GET" action="{{route('periodos.index')}}" class="row">
+        <div class="col-9">
+          <input type="search" class="form-control" id ="search" name = "search" value="{{$busca}}" placeholder="Buscar Período" aria-label="Search">
+        </div>
+        <div class="col-2">
+          <button class="btn btn-outline-primary" type="submit">Buscar</button>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 
   <table class="table table-striped table-hover">
       <thead class="table-primary">
@@ -54,7 +61,10 @@
       @endif
     </tbody>
   </table>
-  {{$periodos->links()}}
-  <a href="{{route('periodos.create')}}" class="btn btn-primary" role="button">Novo periodo</a>
+
+  <div class="row">
+      <div class="col-6 text-start">{{$periodos->links()}}</div>
+      <div class="col-6 text-end">Total de Registros: {{$total}}</div>
+  </div>
 
 @endsection

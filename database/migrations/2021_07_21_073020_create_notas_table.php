@@ -19,6 +19,7 @@ class CreateNotasTable extends Migration
             $table->foreignId('materia_id')->constrained('materias')->onDelete('cascade');
             $table->foreignId('periodo_id')->constrained('periodos')->onDelete('cascade');
             $table->char('nota', 3);
+            $table->char('aprovado', 3);
             $table->timestamps();
         });
     }

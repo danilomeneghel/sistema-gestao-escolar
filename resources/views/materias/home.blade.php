@@ -4,16 +4,23 @@
 
 @section('content')
 
-<p class="h2">Lista de Materias</p>
+    <p class="h2">Lista de Matérias</p>
 
-  <form method="GET" action="{{route('materias.index')}}" class="row g-3 mb-3">
-    <div class="col">
-      <input type="search" class="form-control" id ="search" name = "search" value="{{$busca}}" placeholder="Buscar Materias" aria-label="Search">
+    <div class="row my-3">
+        <div class="col-7">
+            <a href="{{route('materias.create')}}" class="btn btn-primary" role="button">Nova Matéria</a>
+        </div>
+        <div class="col-5">
+          <form method="GET" action="{{route('materias.index')}}" class="row">
+            <div class="col-9">
+              <input type="search" class="form-control" id ="search" name = "search" value="{{$busca}}" placeholder="Buscar Matéria" aria-label="Search">
+            </div>
+            <div class="col-2">
+              <button class="btn btn-outline-primary" type="submit">Buscar</button>
+            </div>
+          </form>
+        </div>
     </div>
-    <div class="col">
-      <button class="btn btn-outline-primary" type="submit">Buscar</button>
-    </div>
-  </form>
 
   <table class="table table-striped table-hover">
       <thead class="table-primary">
@@ -54,7 +61,10 @@
       @endif
     </tbody>
   </table>
-  {{$materias->links()}}
-  <a href="{{route('materias.create')}}" class="btn btn-primary" role="button">Nova materia</a>
+
+  <div class="row">
+      <div class="col-6 text-start">{{$materias->links()}}</div>
+      <div class="col-6 text-end">Total de Registros: {{$total}}</div>
+  </div>
 
 @endsection

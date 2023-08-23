@@ -23,12 +23,15 @@ class EscolaController extends Controller
             ])
             ->paginate(10)
             ->withQueryString();
+            $total = count($escolas);
         }else{
             $escolas = Escola::paginate(10);
+            $total = Escola::count();
         }
 
         return view('escolas.home', [
-            'escolas' => $escolas
+            'escolas' => $escolas,
+            'total' => $total
         ])->with('busca', $busca);
     }
 

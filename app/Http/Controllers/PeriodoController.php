@@ -23,12 +23,15 @@ class PeriodoController extends Controller
             ])
             ->paginate(10)
             ->withQueryString();
+            $total = count($periodos);
         }else{
             $periodos = Periodo::paginate(10);
+            $total = Periodo::count();
         }
 
         return view('periodos.home', [
-            'periodos' => $periodos
+            'periodos' => $periodos,
+            'total' => $total
         ])->with('busca', $busca);
     }
 

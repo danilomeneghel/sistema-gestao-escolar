@@ -19,7 +19,8 @@ class Nota extends JsonResource
             'aluno_id' => $this->aluno_id,
             'materia_id' => $this->materia_id,
             'periodo_id' => $this->periodo_id,
-            'nota' => $this->nota
+            'nota' => $this->nota,
+            'aprovado' => $this->aprovado
         ];
     }
 }

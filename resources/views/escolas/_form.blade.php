@@ -19,7 +19,7 @@
     <label for="cidade" class="form-label">Cidade*</label>
     <input type="text" value="{{ @$escola->cidade }}" class="form-control" id="cidade" name="cidade" placeholder="Ex. Fortaleza"required maxlength="50">
   </div>
-  <div class="mb-2 col-md-3">  
+  <div class="mb-2 col-md-3">
     <label for="cep" class="form-label">Cep*</label>
     <input type="text" value="{{ @$escola->cep }}" class="form-control" id="cep" name="cep" placeholder="9999-999" required maxlength="8">
   </div>
@@ -27,6 +27,9 @@
     <label for="estado" class="form-label">Estado*</label>
     <input type="text" value="{{ @$escola->estado }}" class="form-control" id="estado" name="estado" placeholder="Ex. CE" required maxlength="2">
   </div>
-  <div class="mb-2 col-md-2">
+  <div class="col-1">
+    <a href="{{route('escolas.index')}}" class="btn btn-outline-secondary" role="button">Voltar</a>
+  </div>
+  <div class="col-1">
     <button type="submit" class="btn btn-success">Salvar</button>
   </div>

@@ -23,12 +23,15 @@ class TurmaController extends Controller
             ])
             ->paginate(10)
             ->withQueryString();
+            $total = count($turmas);
         }else{
             $turmas = Turma::paginate(10);
+            $total = Turma::count();
         }
 
         return view('turmas.home', [
-            'turmas' => $turmas
+            'turmas' => $turmas,
+            'total' => $total
         ])->with('busca', $busca);
     }
 

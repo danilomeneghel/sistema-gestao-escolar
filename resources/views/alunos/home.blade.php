@@ -4,27 +4,21 @@
 
 @section('content')
 
-<p class="h2">Lista de Alunos</p>
+  <p class="h2">Lista de Alunos</p>
 
-  <div class="container">
-   <div class="row justify-content-between">
-     <div class="col-9">
-        <form method="GET" action="{{route('alunos.index')}}" class="row" >
-          <div class="col">
-            <input type="search" class="form-control" id ="search" name = "search" value="{{$busca}}" placeholder="Buscar Alunos" aria-label="Search">
+  <div class="row my-3">
+    <div class="col-7">
+        <a href="{{route('alunos.create')}}" class="btn btn-primary" role="button">Novo Aluno</a>
+    </div>
+    <div class="col-5">
+        <form method="GET" action="{{route('alunos.index')}}" class="row">
+          <div class="col-9">
+            <input type="search" class="form-control" id ="search" name = "search" value="{{$busca}}" placeholder="Buscar Aluno" aria-label="Search">
           </div>
-          <div class="col">
+          <div class="col-2">
             <button class="btn btn-outline-primary" type="submit">Buscar</button>
           </div>
         </form>
-     </div>
-      <div class="col-3">
-          <div class="card text-dark bg-info mb-3" style="width: 100%;">
-            <div class="card-body">
-              <h6 class="card-title">Total de Alunos: {{$total}}</h6>
-            </div>
-          </div>
-      </div>
     </div>
   </div>
 
@@ -71,7 +65,10 @@
       @endif
     </tbody>
   </table>
-  {{$alunos->links()}}
-  <a href="{{route('alunos.create')}}" class="btn btn-primary" role="button">Novo aluno</a>
+
+  <div class="row">
+      <div class="col-6 text-start">{{$alunos->links()}}</div>
+      <div class="col-6 text-end">Total de Registros: {{$total}}</div>
+  </div>
 
 @endsection
