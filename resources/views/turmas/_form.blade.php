@@ -31,9 +31,7 @@
     <label for="ano" class="form-label">Ano*</label>
     <input type="text" value="{{ @$turma->ano }}" class="form-control" id="ano" name="ano" placeholder="Ex. 2021"required maxlength="4">
   </div>
-  <div class="col-1">
+  <div class="mb-2 col-md-12">
     <a href="{{route('turmas.index')}}" class="btn btn-outline-secondary" role="button">Voltar</a>
-  </div>
-  <div class="col-1">
     <button type="submit" class="btn btn-success">Salvar</button>
-  </div>
+  </di>

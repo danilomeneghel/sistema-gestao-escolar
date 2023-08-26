@@ -19,9 +19,7 @@
     <label for="genero" class="form-label">Genero</label>
     <input type="text" value="{{ @$aluno->genero }}" class="form-control" id="genero" name="genero" required maxlength="9">
   </div>
-  <div class="col-1">
+  <div class="mb-2 col-md-12">
     <a href="{{route('alunos.index')}}" class="btn btn-outline-secondary" role="button">Voltar</a>
-  </div>
-  <div class="col-1">
     <button type="submit" class="btn btn-success">Salvar</button>
-  </div>
+  </di>

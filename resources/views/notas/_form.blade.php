@@ -37,9 +37,7 @@
       <input type="radio" value="Não" id="0" name="aprovado">
       <label for="aprovado" class="form-label">Não</label>
   </div>
-  <div class="col-1">
+  <div class="mb-2 col-md-12">
     <a href="{{route('notas.index')}}" class="btn btn-outline-secondary" role="button">Voltar</a>
-  </div>
-  <div class="col-1">
     <button type="submit" class="btn btn-success">Salvar</button>
-  </div>
+  </di>

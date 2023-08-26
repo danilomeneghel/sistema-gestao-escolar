@@ -18,9 +18,7 @@
       <option value="Sexto">Sexto</option>
     </select>
   </div>
-  <div class="col-1">
+  <div class="mb-2 col-md-12">
     <a href="{{route('periodos.index')}}" class="btn btn-outline-secondary" role="button">Voltar</a>
-  </div>
-  <div class="col-1">
     <button type="submit" class="btn btn-success">Salvar</button>
-  </div>
+  </di>

@@ -27,9 +27,7 @@
     <label for="estado" class="form-label">Estado*</label>
     <input type="text" value="{{ @$escola->estado }}" class="form-control" id="estado" name="estado" placeholder="Ex. CE" required maxlength="2">
   </div>
-  <div class="col-1">
-    <a href="{{route('escolas.index')}}" class="btn btn-outline-secondary" role="button">Voltar</a>
-  </div>
-  <div class="col-1">
-    <button type="submit" class="btn btn-success">Salvar</button>
-  </div>
+  <div class="mb-2 col-md-12">
+      <a href="{{route('escolas.index')}}" class="btn btn-outline-secondary" role="button">Voltar</a>
+      <button type="submit" class="btn btn-success">Salvar</button>
+  </di>
