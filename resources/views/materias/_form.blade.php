@@ -8,6 +8,6 @@
     <input type="text" value="{{ @$materia->nome }}" class="form-control" id="nome" name="nome" placeholder="Nome da Matéria" required maxlength="20">
   </div>
   <div class="mb-2 col-md-12">
-    <a href="{{route('materiais.index')}}" class="btn btn-outline-secondary" role="button">Voltar</a>
+    <a href="{{route('materias.index')}}" class="btn btn-outline-secondary" role="button">Voltar</a>
     <button type="submit" class="btn btn-success">Salvar</button>
   </di>
