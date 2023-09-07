@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             EscolaSeeder::class,
             TurmaSeeder::class,
             MateriaSeeder::class,
-            PeriodoSeeder::class
+            PeriodoSeeder::class,
+            UserSeeder::class
         ]);
     }
 }
