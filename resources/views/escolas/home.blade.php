@@ -30,7 +30,7 @@
         <th scope="col">Cidade</th>
         <th scope="col">Cep</th>
         <th scope="col">Estado</th>
-        <th scope="col">Ações</th>
+        <th scope="col" class="col-actions">Ações</th>
       </tr>
     </thead>
     <tbody>

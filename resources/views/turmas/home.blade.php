@@ -35,7 +35,7 @@
         <th scope="col">Série</th>
         <th scope="col">Nível</th>
         <th scope="col">Ano</th>
-        <th scope="col">Ações</th>
+        <th scope="col" class="col-actions">Ações</th>
       </tr>
     </thead>
     <tbody>

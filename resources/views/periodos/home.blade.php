@@ -28,7 +28,7 @@
         <th scope="col">#</th>
         <th scope="col">Tipo</th>
         <th scope="col">Período</th>
-        <th scope="col">Ações</th>
+        <th scope="col" class="col-actions">Ações</th>
       </tr>
     </thead>
     <tbody>

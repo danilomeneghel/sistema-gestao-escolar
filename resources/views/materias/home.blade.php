@@ -28,7 +28,7 @@
         <th scope="col">#</th>
         <th scope="col">Código</th>
         <th scope="col">Nome</th>
-        <th scope="col">Ações</th>
+        <th scope="col" class="col-actions">Ações</th>
       </tr>
     </thead>
     <tbody>

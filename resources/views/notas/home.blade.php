@@ -35,7 +35,7 @@
         <th scope="col">Período</th>
         <th scope="col">Nota</th>
         <th scope="col">Aprovado</th>
-        <th scope="col">Ações</th>
+        <th scope="col" class="col-actions">Ações</th>
       </tr>
     </thead>
     <tbody>

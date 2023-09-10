@@ -797,6 +797,10 @@ progress {
   flex: 1 0 0%;
 }
 
+.col-actions {
+  width: 180px !important;
+}
+
 .row-cols-auto > * {
   flex: 0 0 auto;
   width: auto;
@@ -11985,7 +11989,89 @@ textarea.form-control-lg {
   white-space: nowrap;
 }
 
+.margin-card {
+    margin: 0px 10px !important;
+}
+
+.col-card {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    min-width: 25%;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+
+  .margin-card {
+      margin: 10px 90px !important;
+  }
+
+  .col-card {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    min-width: 30%;
+  }
+
+  .input-search {
+    max-width: 50% !important;
+  }
+}
+
+.card{
+	padding:1px;
+	margin:15px;
+}
+
+.card-img-top{
+	height:auto;
+	overflow: hidden;
+}
+
+.bg-blue {
+  background-color: #0d6efd !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.form-signin {
+  margin-top: 15px !important;
+}
+
 .logo-login {
   margin-top: -20px !important;
   padding-bottom: 15px !important;
+}
+
+.register {
+  margin-top: 10px !important;
+}
+
+.register a {
+  text-decoration: none !important;
+}
+
+.text-version {
+  font-size: 14px !important;
+  text-align: center !important;
+  margin-top: 60px !important;
 }
