@@ -49,7 +49,7 @@
 
         <button class="w-100 btn btn-lg btn-primary" type="submit">Criar conta</button>
         <div class="col-xs-6">
-		<div class="pull-right">
+		<div class="register">
 		  <a ui-sref="register" class="text-center" href="{{ route('login.show') }}">Já tenho conta</a>
 		</div>
   	</div>
