@@ -84,6 +84,20 @@ Será populado 15 registros por execução
   php artisan serve
 ```
 
+## Acesso ao Sistema
+
+Para acessar o sistema utilize o seguinte endereço:<br>
+http://localhost:8000/
+
+Usuário: admin<br>
+Senha: admin
+
+## Acesso a API
+
+Para acessar a API utilize o seguinte endereço:<br>
+
+http://localhost:8000/swagger
+
 ## Endpoints API
 
 API disponibiliza as funcionalidades baseadas na rota:
