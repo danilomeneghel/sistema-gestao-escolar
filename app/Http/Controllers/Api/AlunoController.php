@@ -49,10 +49,12 @@ class AlunoController extends Controller
      *      @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
-     *            required={"title", "content", "status"},
-     *            @OA\Property(property="title", type="string", format="string", example="Test Article Title"),
-     *            @OA\Property(property="content", type="string", format="string", example="This is a description for kodementor"),
-     *            @OA\Property(property="status", type="string", format="string", example="Published"),
+     *            required={"nome", "telefone", "genero"},
+     *            @OA\Property(property="nome", type="string", format="string", example="Aluno Teste"),
+     *            @OA\Property(property="email", type="string", format="string", example="teste@teste.com"),
+     *            @OA\Property(property="telefone", type="integer", format="integer", example="99999999999"),
+     *            @OA\Property(property="data_nascimento", type="integer", format="integer", example="1111-11-11"),
+     *            @OA\Property(property="genero", type="string", format="string", example="Masculino"),
      *         ),
      *      ),
      *     @OA\Response(
@@ -67,11 +69,11 @@ class AlunoController extends Controller
     public function store(AlunoRequest $request)
     {
         $aluno = new Aluno;
-        $aluno->nome = $request-> nome;
-        $aluno->email = $request-> email;
-        $aluno->telefone = $request-> telefone;
-        $aluno->data_nascimento = $request-> data_nascimento;
-        $aluno->genero = $request-> genero;
+        $aluno->nome = $request->nome;
+        $aluno->email = $request->email;
+        $aluno->telefone = $request->telefone;
+        $aluno->data_nascimento = $request->data_nascimento;
+        $aluno->genero = $request->genero;
 
         if($aluno->save()){
             return new AlunoResource( $aluno );
@@ -84,7 +86,7 @@ class AlunoController extends Controller
      *    operationId="aluno/show",
      *    tags={"Alunos"},
      *    summary="Pesquisar Aluno",
-     *    @OA\Parameter(name="id", in="path", description="Id of Article", required=true,
+     *    @OA\Parameter(name="id", in="path", description="Id Aluno", required=true,
      *        @OA\Schema(type="integer")
      *    ),
      *     @OA\Response(
@@ -110,19 +112,20 @@ class AlunoController extends Controller
      *     operationId="aluno/update",
      *     tags={"Alunos"},
      *     summary="Editar Aluno",
-     *     description="Update article in DB",
-     *     @OA\Parameter(name="id", in="path", description="Id of Article", required=true,
+     *     @OA\Parameter(name="id", in="path", description="Id Aluno", required=true,
      *         @OA\Schema(type="integer")
      *     ),
      *     @OA\RequestBody(
      *        required=true,
-     *        @OA\JsonContent(
-     *           required={"title", "content", "status"},
-     *           @OA\Property(property="title", type="string", format="string", example="Test Article Title"),
-     *           @OA\Property(property="content", type="string", format="string", example="This is a description for kodementor"),
-     *           @OA\Property(property="status", type="string", format="string", example="Published"),
-     *        ),
-     *     ),
+     *         @OA\JsonContent(
+     *            required={"nome", "telefone", "genero"},
+     *            @OA\Property(property="nome", type="string", format="string", example="Aluno Teste"),
+     *            @OA\Property(property="email", type="string", format="string", example="teste@teste.com"),
+     *            @OA\Property(property="telefone", type="integer", format="integer", example="99999999999"),
+     *            @OA\Property(property="data_nascimento", type="integer", format="integer", example="1111-11-11"),
+     *            @OA\Property(property="genero", type="string", format="string", example="Masculino"),
+     *         ),
+     *      ),
      *     @OA\Response(
      *          response=200, description="Success",
      *          @OA\JsonContent(
@@ -136,11 +139,11 @@ class AlunoController extends Controller
     {
         $aluno = Aluno::findOrFail($id);
 
-        $aluno->nome = $request-> nome;
-        $aluno->email = $request-> email;
-        $aluno->telefone = $request-> telefone;
-        $aluno->data_nascimento = $request-> data_nascimento;
-        $aluno->genero = $request-> genero;
+        $aluno->nome = $request->nome;
+        $aluno->email = $request->email;
+        $aluno->telefone = $request->telefone;
+        $aluno->data_nascimento = $request->data_nascimento;
+        $aluno->genero = $request->genero;
 
         if($aluno->save()){
             return new AlunoResource( $aluno );
@@ -154,7 +157,7 @@ class AlunoController extends Controller
      *    operationId="aluno/destroy",
      *    tags={"Alunos"},
      *    summary="Excluir Aluno",
-     *    @OA\Parameter(name="id", in="path", description="Id of Article", required=true,
+     *    @OA\Parameter(name="id", in="path", description="Id Aluno", required=true,
      *        @OA\Schema(type="integer")
      *    ),
      *    @OA\Response(

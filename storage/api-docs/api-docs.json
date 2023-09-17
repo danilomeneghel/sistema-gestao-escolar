@@ -82,25 +82,35 @@
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "title",
-                                    "content",
-                                    "status"
+                                    "nome",
+                                    "telefone",
+                                    "genero"
                                 ],
                                 "properties": {
-                                    "title": {
+                                    "nome": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": "Test Article Title"
+                                        "example": "Aluno Teste"
                                     },
-                                    "content": {
+                                    "email": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": "This is a description for kodementor"
+                                        "example": "teste@teste.com"
                                     },
-                                    "status": {
+                                    "telefone": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "99999999999"
+                                    },
+                                    "data_nascimento": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1111-11-11"
+                                    },
+                                    "genero": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": "Published"
+                                        "example": "Masculino"
                                     }
                                 },
                                 "type": "object"
@@ -142,7 +152,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Id of Article",
+                        "description": "Id Aluno",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -176,13 +186,12 @@
                     "Alunos"
                 ],
                 "summary": "Editar Aluno",
-                "description": "Update article in DB",
                 "operationId": "aluno/update",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Id of Article",
+                        "description": "Id Aluno",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -195,25 +204,35 @@
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "title",
-                                    "content",
-                                    "status"
+                                    "nome",
+                                    "telefone",
+                                    "genero"
                                 ],
                                 "properties": {
-                                    "title": {
+                                    "nome": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": "Test Article Title"
+                                        "example": "Aluno Teste"
                                     },
-                                    "content": {
+                                    "email": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": "This is a description for kodementor"
+                                        "example": "teste@teste.com"
                                     },
-                                    "status": {
+                                    "telefone": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "99999999999"
+                                    },
+                                    "data_nascimento": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1111-11-11"
+                                    },
+                                    "genero": {
                                         "type": "string",
                                         "format": "string",
-                                        "example": "Published"
+                                        "example": "Masculino"
                                     }
                                 },
                                 "type": "object"
@@ -253,7 +272,1429 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Id of Article",
+                        "description": "Id Aluno",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/escolas": {
+            "get": {
+                "tags": [
+                    "Escolas"
+                ],
+                "summary": "Listar Escolas",
+                "operationId": "escola/index",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "the page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "order  accepts 'asc' or 'desc'",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/escola": {
+            "post": {
+                "tags": [
+                    "Escolas"
+                ],
+                "summary": "Cadastrar Escola",
+                "operationId": "escola/store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "content",
+                                    "status"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Escola Teste"
+                                    },
+                                    "logradouro": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Logradouro Teste"
+                                    },
+                                    "numero": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "99"
+                                    },
+                                    "bairro": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Bairro Teste"
+                                    },
+                                    "cidade": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Cidade Teste"
+                                    },
+                                    "cep": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "99999999"
+                                    },
+                                    "estado": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "SP"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/escola/{id}": {
+            "get": {
+                "tags": [
+                    "Escolas"
+                ],
+                "summary": "Pesquisar Escola",
+                "operationId": "escola/show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Escola",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Escolas"
+                ],
+                "summary": "Editar Escola",
+                "operationId": "escola/update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Escola",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "content",
+                                    "status"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Escola Teste"
+                                    },
+                                    "logradouro": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Logradouro Teste"
+                                    },
+                                    "numero": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "99"
+                                    },
+                                    "bairro": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Bairro Teste"
+                                    },
+                                    "cidade": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Cidade Teste"
+                                    },
+                                    "cep": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "99999999"
+                                    },
+                                    "estado": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "SP"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Escolas"
+                ],
+                "summary": "Excluir Escola",
+                "operationId": "escola/destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Escola",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/materias": {
+            "get": {
+                "tags": [
+                    "Materias"
+                ],
+                "summary": "Listar Materias",
+                "operationId": "materia/index",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "the page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "order  accepts 'asc' or 'desc'",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/materia": {
+            "post": {
+                "tags": [
+                    "Materias"
+                ],
+                "summary": "Cadastrar Materia",
+                "operationId": "materia/store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "codigo"
+                                ],
+                                "properties": {
+                                    "codigo": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
+                                    "nome": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Matéria Teste"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/materia/{id}": {
+            "get": {
+                "tags": [
+                    "Materias"
+                ],
+                "summary": "Pesquisar Materia",
+                "operationId": "materia/show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Materia",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Materias"
+                ],
+                "summary": "Editar Materia",
+                "operationId": "materia/update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Materia",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "codigo"
+                                ],
+                                "properties": {
+                                    "codigo": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
+                                    "nome": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Matéria Teste"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Materias"
+                ],
+                "summary": "Excluir Materia",
+                "operationId": "materia/destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Materia",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/notas": {
+            "get": {
+                "tags": [
+                    "Notas"
+                ],
+                "summary": "Listar Notas",
+                "operationId": "nota/index",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "the page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "order  accepts 'asc' or 'desc'",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/nota": {
+            "post": {
+                "tags": [
+                    "Notas"
+                ],
+                "summary": "Cadastrar Nota",
+                "operationId": "nota/store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "aluno_id",
+                                    "materia_id",
+                                    "periodo_id",
+                                    "nota",
+                                    "aprovado"
+                                ],
+                                "properties": {
+                                    "aluno_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
+                                    "materia_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
+                                    "periodo_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
+                                    "nota": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "9"
+                                    },
+                                    "aprovado": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Sim"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/nota/{id}": {
+            "get": {
+                "tags": [
+                    "Notas"
+                ],
+                "summary": "Pesquisar Nota",
+                "operationId": "nota/show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Nota",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Notas"
+                ],
+                "summary": "Editar Nota",
+                "operationId": "nota/update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Nota",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "aluno_id",
+                                    "materia_id",
+                                    "periodo_id",
+                                    "nota",
+                                    "aprovado"
+                                ],
+                                "properties": {
+                                    "aluno_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
+                                    "materia_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
+                                    "periodo_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
+                                    "nota": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "9"
+                                    },
+                                    "aprovado": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Sim"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Notas"
+                ],
+                "summary": "Excluir Nota",
+                "operationId": "nota/destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Nota",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/periodos": {
+            "get": {
+                "tags": [
+                    "Periodos"
+                ],
+                "summary": "Listar Periodos",
+                "operationId": "periodo/index",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "the page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "order  accepts 'asc' or 'desc'",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/periodo": {
+            "post": {
+                "tags": [
+                    "Periodos"
+                ],
+                "summary": "Cadastrar Periodo",
+                "operationId": "periodo/store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "tipo",
+                                    "periodo"
+                                ],
+                                "properties": {
+                                    "tipo": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Bimestre"
+                                    },
+                                    "periodo": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Primeiro"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/periodo/{id}": {
+            "get": {
+                "tags": [
+                    "Periodos"
+                ],
+                "summary": "Pesquisar Periodo",
+                "operationId": "periodo/show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Periodo",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Periodos"
+                ],
+                "summary": "Editar Periodo",
+                "operationId": "periodo/update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Periodo",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "tipo",
+                                    "periodo"
+                                ],
+                                "properties": {
+                                    "tipo": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Bimestre"
+                                    },
+                                    "periodo": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Primeiro"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Periodos"
+                ],
+                "summary": "Excluir Periodo",
+                "operationId": "periodo/destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Periodo",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/turmas": {
+            "get": {
+                "tags": [
+                    "Turmas"
+                ],
+                "summary": "Listar Turmas",
+                "operationId": "turma/index",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "the page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "description": "order  accepts 'asc' or 'desc'",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/turma": {
+            "post": {
+                "tags": [
+                    "Turmas"
+                ],
+                "summary": "Cadastrar Turma",
+                "operationId": "turma/store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "escola_id",
+                                    "turno",
+                                    "serie",
+                                    "nivel",
+                                    "ano"
+                                ],
+                                "properties": {
+                                    "escola_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
+                                    "turno": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Manhã"
+                                    },
+                                    "serie": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "5º"
+                                    },
+                                    "nivel": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Fundamental"
+                                    },
+                                    "ano": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "2020"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/turma/{id}": {
+            "get": {
+                "tags": [
+                    "Turmas"
+                ],
+                "summary": "Pesquisar Turma",
+                "operationId": "turma/show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Turma",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Turmas"
+                ],
+                "summary": "Editar Turma",
+                "operationId": "turma/update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Turma",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "escola_id",
+                                    "turno",
+                                    "serie",
+                                    "nivel",
+                                    "ano"
+                                ],
+                                "properties": {
+                                    "escola_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
+                                    "turno": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Manhã"
+                                    },
+                                    "serie": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "5º"
+                                    },
+                                    "nivel": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Fundamental"
+                                    },
+                                    "ano": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "2020"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Turmas"
+                ],
+                "summary": "Excluir Turma",
+                "operationId": "turma/destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id Turma",
                         "required": true,
                         "schema": {
                             "type": "integer"

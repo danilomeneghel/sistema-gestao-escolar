@@ -46,6 +46,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('notas.index') }}">Notas</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/swagger-ui" target="_blank">Acessar API</a>
+                            </li>
                         </ul>
                     </div>
                     @auth

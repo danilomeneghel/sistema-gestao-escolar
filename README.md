@@ -92,79 +92,25 @@ http://localhost:8000/
 Usuário: admin<br>
 Senha: admin
 
-## Acesso a API
+## Acesso ao Swagger
 
-Para acessar a API utilize o seguinte endereço:<br>
+Para acessar o Swagger utilize o seguinte endereço:<br>
 
-http://localhost:8000/swagger
+http://localhost:8000/swagger-ui
 
-## Endpoints API
+## Licença
 
-API disponibiliza as funcionalidades baseadas na rota:
+Projeto licenciado sob <a href="LICENSE">The MIT License (MIT)</a>.<br><br>
 
-```bash
-  localhost:8000/api
-```
+## Screenshots
 
--Rotas
-
--   index (GET)
-
-```bash
-  /alunos
-  /escolas
-  /turmas
-  /materias
-  /periodos
-  /notas
-```
-
--   show (GET)
-
-```bash
-  /aluno/{id}
-  /escola/{id}
-  /turma/{id}
-  /materias/{id}
-  /periodos/{id}
-  /notas/{id}
-```
-
--   store (POST)
-
-```bash
-  /aluno
-  /escola
-  /turma
-  /materias
-  /periodos
-  /notas
-```
-
--   update (PUT)
-
-```bash
-  /aluno/{id}
-  /escola/{id}
-  /turma/{id}
-  /materias/{id}
-  /periodos/{id}
-  /notas/{id}
-```
-
--   destroy (DELETE)
-
-```bash
-  /aluno/{id}
-  /escola/{id}
-  /turma/{id}
-  /materias/{id}
-  /periodos/{id}
-  /notas/{id}
-```
-
--   Header
-
-```bash
-  Content-Type application/json
-```
+![Screenshots](screenshots/screenshot01.png) <br><br>
+![Screenshots](screenshots/screenshot02.png) <br><br>
+![Screenshots](screenshots/screenshot03.png) <br><br>
+![Screenshots](screenshots/screenshot04.png) <br><br>
+![Screenshots](screenshots/screenshot05.png) <br><br>
+![Screenshots](screenshots/screenshot06.png) <br><br>
+![Screenshots](screenshots/screenshot07.png) <br><br>
+![Screenshots](screenshots/screenshot08.png) <br><br>
+![Screenshots](screenshots/screenshot09.png) <br><br>
+![Screenshots](screenshots/screenshot10.png) <br><br>

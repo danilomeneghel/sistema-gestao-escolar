@@ -11,9 +11,28 @@ use App\Models\Escola;
 class EscolaController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @OA\Get(
+     *    path="/api/escolas",
+     *    operationId="escola/index",
+     *    tags={"Escolas"},
+     *    summary="Listar Escolas",
+     *    @OA\Parameter(name="limit", in="query", description="limit", required=false,
+     *        @OA\Schema(type="integer")
+     *    ),
+     *    @OA\Parameter(name="page", in="query", description="the page number", required=false,
+     *        @OA\Schema(type="integer")
+     *    ),
+     *    @OA\Parameter(name="order", in="query", description="order  accepts 'asc' or 'desc'", required=false,
+     *        @OA\Schema(type="string")
+     *    ),
+     *     @OA\Response(
+     *          response=200, description="Success",
+     *          @OA\JsonContent(
+     *             @OA\Property(property="status", type="integer", example="200"),
+     *             @OA\Property(property="data",type="object")
+     *          )
+     *       )
+     *  )
      */
     public function index()
     {
@@ -22,21 +41,43 @@ class EscolaController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Requests\EscolaRequest  $request
-     * @return \Illuminate\Http\Response
+     * @OA\Post(
+     *      path="/api/escola",
+     *      operationId="escola/store",
+     *      tags={"Escolas"},
+     *      summary="Cadastrar Escola",
+     *      @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *            required={"title", "content", "status"},
+     *            @OA\Property(property="nome", type="string", format="string", example="Escola Teste"),
+     *            @OA\Property(property="logradouro", type="string", format="string", example="Logradouro Teste"),
+     *            @OA\Property(property="numero", type="integer", format="integer", example="99"),
+     *            @OA\Property(property="bairro", type="string", format="string", example="Bairro Teste"),
+     *            @OA\Property(property="cidade", type="string", format="string", example="Cidade Teste"),
+     *            @OA\Property(property="cep", type="integer", format="integer", example="99999999"),
+      *            @OA\Property(property="estado", type="string", format="string", example="SP"),
+     *         ),
+     *      ),
+     *     @OA\Response(
+     *          response=200, description="Success",
+     *          @OA\JsonContent(
+     *             @OA\Property(property="status", type="integer", example=""),
+     *             @OA\Property(property="data",type="object")
+     *          )
+     *       )
+     *  )
      */
     public function store(EscolaRequest $request)
     {
         $escola = new Escola;
-        $escola->nome = $request-> nome;
-        $escola->logradouro = $request-> logradouro;
-        $escola->numero = $request-> numero;
-        $escola->bairro = $request-> bairro;
-        $escola->cidade = $request-> cidade;
-        $escola->cep = $request-> cep;
-        $escola->estado = $request-> estado;
+        $escola->nome = $request->nome;
+        $escola->logradouro = $request->logradouro;
+        $escola->numero = $request->numero;
+        $escola->bairro = $request->bairro;
+        $escola->cidade = $request->cidade;
+        $escola->cep = $request->cep;
+        $escola->estado = $request->estado;
 
         if($escola->save()){
             return new EscolaResource( $escola );
@@ -44,10 +85,24 @@ class EscolaController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @OA\Get(
+     *    path="/api/escola/{id}",
+     *    operationId="escola/show",
+     *    tags={"Escolas"},
+     *    summary="Pesquisar Escola",
+     *    @OA\Parameter(name="id", in="path", description="Id Escola", required=true,
+     *        @OA\Schema(type="integer")
+     *    ),
+     *     @OA\Response(
+     *          response=200,
+     *          description="Success",
+     *          @OA\JsonContent(
+     *          @OA\Property(property="status_code", type="integer", example="200"),
+     *          @OA\Property(property="data",type="object")
+     *           ),
+     *        )
+     *       )
+     *  )
      */
     public function show($id)
     {
@@ -56,24 +111,48 @@ class EscolaController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Requests\EscolaRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @OA\Put(
+     *     path="/api/escola/{id}",
+     *     operationId="escola/update",
+     *     tags={"Escolas"},
+     *     summary="Editar Escola",
+     *     @OA\Parameter(name="id", in="path", description="Id Escola", required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\RequestBody(
+     *        required=true,
+     *         @OA\JsonContent(
+     *            required={"title", "content", "status"},
+     *            @OA\Property(property="nome", type="string", format="string", example="Escola Teste"),
+     *            @OA\Property(property="logradouro", type="string", format="string", example="Logradouro Teste"),
+     *            @OA\Property(property="numero", type="integer", format="integer", example="99"),
+     *            @OA\Property(property="bairro", type="string", format="string", example="Bairro Teste"),
+     *            @OA\Property(property="cidade", type="string", format="string", example="Cidade Teste"),
+     *            @OA\Property(property="cep", type="integer", format="integer", example="99999999"),
+      *            @OA\Property(property="estado", type="string", format="string", example="SP"),
+     *         ),
+     *      ),
+     *     @OA\Response(
+     *          response=200, description="Success",
+     *          @OA\JsonContent(
+     *             @OA\Property(property="status_code", type="integer", example="200"),
+     *             @OA\Property(property="data",type="object")
+     *          )
+     *       )
+     *  )
      */
     public function update(EscolaRequest $request, $id)
     {
         $escola = Escola::findOrFail($id);
 
         $escola = new Escola;
-        $escola->nome = $request-> nome;
-        $escola->logradouro = $request-> logradouro;
-        $escola->numero = $request-> numero;
-        $escola->bairro = $request-> bairro;
-        $escola->cidade = $request-> cidade;
-        $escola->cep = $request-> cep;
-        $escola->estado = $request-> estado;
+        $escola->nome = $request->nome;
+        $escola->logradouro = $request->logradouro;
+        $escola->numero = $request->numero;
+        $escola->bairro = $request->bairro;
+        $escola->cidade = $request->cidade;
+        $escola->cep = $request->cep;
+        $escola->estado = $request->estado;
 
         if($escola->save()){
             return new EscolaResource( $escola );
@@ -81,15 +160,29 @@ class EscolaController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @OA\Delete(
+     *    path="/api/escola/{id}",
+     *    operationId="escola/destroy",
+     *    tags={"Escolas"},
+     *    summary="Excluir Escola",
+     *    @OA\Parameter(name="id", in="path", description="Id Escola", required=true,
+     *        @OA\Schema(type="integer")
+     *    ),
+     *    @OA\Response(
+     *         response=200,
+     *         description="Success",
+     *         @OA\JsonContent(
+     *         @OA\Property(property="status_code", type="integer", example="200"),
+     *         @OA\Property(property="data",type="object")
+     *          ),
+     *       )
+     *      )
+     *  )
      */
     public function destroy($id)
     {
         $escola = Escola::findOrFail($id);
-       
+
         if($escola->delete() ){
             return new EscolaResource( $escola );
         }
