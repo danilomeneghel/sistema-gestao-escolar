@@ -1,6 +1,6 @@
 # Gestão Escolar
 
-Sistema de Gestão Escolar desenvolvido com PHP e Laravel.
+Sistema de Gestão Escolar desenvolvido em PHP com Laravel e API REST.
 
 ## Módulos:
 
@@ -29,6 +29,7 @@ Sistema de Gestão Escolar desenvolvido com PHP e Laravel.
 - Composer
 - Artisan
 - Laravel
+- Swagger
 
 ## Instalação:
 
