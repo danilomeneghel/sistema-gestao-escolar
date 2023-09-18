@@ -50,15 +50,10 @@
                                 <a class="nav-link" href="/swagger-ui" target="_blank">Acessar API</a>
                             </li>
                         </ul>
+                        <div>
+                            <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">Sair</a>
+                        </div>
                     </div>
-                    @auth
-			<div class="nav-text">
-			  {{auth()->user()->name}}
-			</div>
-			<div class="text-end">
-			  <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">Logout</a>
-			</div>
-		    @endauth
                 </div>
             </nav>
         </header>
