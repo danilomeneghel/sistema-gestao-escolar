@@ -67,7 +67,7 @@ Route::post('nota', [NotaController::class, 'store']);
 Route::put('nota/{id}', [NotaController::class, 'update']);
 Route::delete('nota/{id}', [NotaController::class, 'destroy']);
 
-//Rotas API Usuário
+//Rotas API Usuários
 Route::get('users', [UserController::class, 'index']);
 Route::get('user/{id}', [UserController::class, 'show']);
 Route::post('user', [UserController::class, 'store']);
