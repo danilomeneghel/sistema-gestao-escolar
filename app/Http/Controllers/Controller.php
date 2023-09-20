@@ -11,11 +11,7 @@ use Illuminate\Routing\Controller as BaseController;
  * @OA\Info(
  *     version="1.0.0",
  *     title="API Gestão Escolar",
- *     description="Sistema de Gestão Escolar",
- *     @OA\License(
- *         name="Apache 2.0",
- *         url="http://www.apache.org/licenses/LICENSE-2.0.html"
- *     )
+ *     description="Sistema de Gestão Escolar"
  * )
  */
 class Controller extends BaseController
