@@ -14,7 +14,7 @@ class UserController extends Controller
      * @OA\Get(
      *    path="/api/users",
      *    operationId="users/index",
-     *    tags={"Users"},
+     *    tags={"Usuários"},
      *    summary="Listar Usuários",
      *    @OA\Parameter(name="limit", in="query", description="limit", required=false,
      *        @OA\Schema(type="integer")
@@ -44,7 +44,7 @@ class UserController extends Controller
      * @OA\Post(
      *      path="/api/user",
      *      operationId="user/store",
-     *      tags={"Users"},
+     *      tags={"Usuários"},
      *      summary="Cadastrar Usuário",
      *      @OA\RequestBody(
      *         required=true,
@@ -82,7 +82,7 @@ class UserController extends Controller
      * @OA\Get(
      *    path="/api/user/{id}",
      *    operationId="user/show",
-     *    tags={"Users"},
+     *    tags={"Usuários"},
      *    summary="Pesquisar Usuário",
      *    @OA\Parameter(name="id", in="path", description="Id User", required=true,
      *        @OA\Schema(type="integer")
@@ -108,7 +108,7 @@ class UserController extends Controller
      * @OA\Put(
      *     path="/api/user/{id}",
      *     operationId="user/update",
-     *     tags={"Users"},
+     *     tags={"Usuários"},
      *     summary="Editar Usuário",
      *     @OA\Parameter(name="id", in="path", description="Id User", required=true,
      *         @OA\Schema(type="integer")
@@ -151,7 +151,7 @@ class UserController extends Controller
      * @OA\Delete(
      *    path="/api/user/{id}",
      *    operationId="user/destroy",
-     *    tags={"Users"},
+     *    tags={"Usuários"},
      *    summary="Excluir Usuário",
      *    @OA\Parameter(name="id", in="path", description="Id User", required=true,
      *        @OA\Schema(type="integer")
