@@ -1723,7 +1723,7 @@
         "/api/users": {
             "get": {
                 "tags": [
-                    "Users"
+                    "Usuários"
                 ],
                 "summary": "Listar Usuários",
                 "operationId": "users/index",
@@ -1782,7 +1782,7 @@
         "/api/user": {
             "post": {
                 "tags": [
-                    "Users"
+                    "Usuários"
                 ],
                 "summary": "Cadastrar Usuário",
                 "operationId": "user/store",
@@ -1850,7 +1850,7 @@
         "/api/user/{id}": {
             "get": {
                 "tags": [
-                    "Users"
+                    "Usuários"
                 ],
                 "summary": "Pesquisar Usuário",
                 "operationId": "user/show",
@@ -1889,7 +1889,7 @@
             },
             "put": {
                 "tags": [
-                    "Users"
+                    "Usuários"
                 ],
                 "summary": "Editar Usuário",
                 "operationId": "user/update",
@@ -1966,7 +1966,7 @@
             },
             "delete": {
                 "tags": [
-                    "Users"
+                    "Usuários"
                 ],
                 "summary": "Excluir Usuário",
                 "operationId": "user/destroy",
