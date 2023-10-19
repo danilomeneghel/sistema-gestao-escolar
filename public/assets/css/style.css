@@ -11995,47 +11995,17 @@ textarea.form-control-lg {
 
 .col-card {
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 41.666667%;
-    flex: 0 0 41.666667%;
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
     min-width: 25%;
 }
 
-@media (min-width: 768px) {
-  #sidebar-wrapper {
-    margin-left: 0;
-  }
-
-  #page-content-wrapper {
-    min-width: 0;
-    width: 100%;
-  }
-
-  #wrapper.toggled #sidebar-wrapper {
-    margin-left: -15rem;
-  }
-
-  .margin-card {
-      margin: 10px 90px !important;
-  }
-
-  .col-card {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 25%;
-    flex: 0 0 25%;
-    min-width: 30%;
-  }
-
-  .input-search {
-    max-width: 50% !important;
-  }
-}
-
-.card{
+.card {
 	padding:1px;
 	margin:15px;
 }
 
-.card-img-top{
+.card-img-top {
 	height:auto;
 	overflow: hidden;
 }
@@ -12053,25 +12023,50 @@ a {
   background-color: transparent;
 }
 
-.form-signin {
-  margin-top: 15px !important;
-}
+@media (max-width: 768px) {
+    .col-login-image, .col-login-image2 {
+        display: none;
+        width: 0;
+    }
 
-.logo-login {
-  margin-top: -20px !important;
-  padding-bottom: 15px !important;
-}
+    .col-login-form {
+        display: block;
+        width: 100%;
+    }
 
-.register {
-  margin-top: 10px !important;
-}
+    #sidebar-wrapper {
+        min-height: 100vh;
+        margin-left: -15rem;
+        -webkit-transition: margin .25s ease-out;
+        -moz-transition: margin .25s ease-out;
+        -o-transition: margin .25s ease-out;
+        transition: margin .25s ease-out;
+    }
 
-.register a {
-  text-decoration: none !important;
-}
+    #wrapper {
+        overflow-x: hidden;
+    }
 
-.text-version {
-  font-size: 14px !important;
-  text-align: center !important;
-  margin-top: 60px !important;
+    #page-content-wrapper {
+        min-width: 100vw;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    .margin-card {
+        margin: 0px 10px !important;
+    }
+
+    .col-card {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 41.666667%;
+        flex: 0 0 41.666667%;
+        min-width: 25%;
+    }
+
+    .input-search {
+        max-width: 100%;
+    }
 }
