@@ -10,10 +10,10 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
-    <link href="{!! url('assets/css/signin.css') !!}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
+    <link href="{!! url('assets/css/font-awesome.min.css') !!}" rel="stylesheet">
+    <link href="{!! url('assets/css/signin.css') !!}" rel="stylesheet">
 </head>
 <body class="text-center">
 
