@@ -9,10 +9,6 @@ class Turma extends Model
 {
     use HasFactory;
 
-    /**
-     * Define os campos que podem ser gravados
-     * @var array
-     */
     protected $fillable = ['escola_id', 'turno', 'serie', 'nivel', 'ano'];
 
     public function escola()
@@ -24,5 +20,4 @@ class Turma extends Model
     {
         return $this->belongsToMany(Aluno::class, 'alunos_turmas', 'turma_id', 'aluno_id');
     }
-
 }

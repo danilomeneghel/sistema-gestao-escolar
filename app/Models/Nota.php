@@ -9,10 +9,6 @@ class Nota extends Model
 {
     use HasFactory;
 
-    /**
-     * Define os campos que podem ser gravados
-     * @var array
-     */
     protected $fillable = ['aluno_id', 'materia_id', 'periodo_id', 'nota', 'aprovado'];
 
     public function aluno()
@@ -29,5 +25,4 @@ class Nota extends Model
     {
         return $this->belongsTo(Periodo::class, 'periodo_id', 'id');
     }
-
 }

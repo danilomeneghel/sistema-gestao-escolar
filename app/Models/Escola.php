@@ -9,15 +9,10 @@ class Escola extends Model
 {
     use HasFactory;
 
-    /**
-     * Define os campos que podem ser gravados
-     * @var array
-     */
     protected $fillable = ['nome', 'logradouro', 'numero', 'bairro', 'cidade', 'cep', 'estado'];
 
     public function turma()
     {
-        return $this->hasMany(Turma::class, 'escola_id', 'id' );
+        return $this->hasMany(Turma::class, 'escola_id', 'id');
     }
-
 }
