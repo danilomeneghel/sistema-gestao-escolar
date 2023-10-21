@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Periodo;
 use Illuminate\Database\Seeder;
+use App\Models\Periodo;
 
 class PeriodoSeeder extends Seeder
 {
