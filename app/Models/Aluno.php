@@ -9,7 +9,7 @@ class Aluno extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'telefone', 'email', 'data_nascimento', 'genero'];
+    protected $fillable = ['nome', 'email', 'telefone', 'data_nascimento', 'genero'];
 
     public function turma()
     {

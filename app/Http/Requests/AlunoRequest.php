@@ -25,7 +25,7 @@ class AlunoRequest extends FormRequest
     {
         return [
             'nome'=> ['required', 'max:100'],
-            'email'=> ['required','email', 'max:100'],
+            'email'=> ['required', 'email', 'max:100'],
             'telefone'=> ['required', 'max:15'],
             'data_nascimento'=> ['required'],
             'genero'=> ['required', 'max:9']

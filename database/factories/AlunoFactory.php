@@ -23,8 +23,8 @@ class AlunoFactory extends Factory
     {
         return [
             'nome'            => $this->faker->name(),
-            'telefone'        => $this->faker->bothify('##9########'),
             'email'           => $this->faker->unique()->safeEmail(),
+            'telefone'        => $this->faker->bothify('##9########'),
             'data_nascimento' => $this->faker->date(),
             'genero'          => $this->faker->randomElements(['Masculino','Feminino'])[0]
         ];
