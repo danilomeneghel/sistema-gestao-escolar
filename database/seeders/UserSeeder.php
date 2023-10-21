@@ -14,11 +14,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+        $data = [
             'name' => 'Administrador',
             'username' => 'admin',
             'email' => 'admin@admin.com',
-            'password' => '$2a$10$1HAxsgoqtXCVASxpXGcnheACN8.SbB8iQZ5o4sktAOPQEE/k2B9Ue'
-        ]);
+            'password' => bcrypt('admin')
+        ];
+        User::insert($data);
     }
 }
